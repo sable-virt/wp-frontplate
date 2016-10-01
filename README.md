@@ -2,8 +2,6 @@
 
 フロントエンド開発の効率を上げるテンプレートのWordpress版
 
-** Version4.0.0 beta-1 **
-
 - ※ Node.js 5.0以上が必要です
 
 [CHANGELOG](https://github.com/frontainer/frontplate/blob/master/CHANGELOG.md)
@@ -34,38 +32,23 @@
 
 ## 構成
 
+[frontplate](https://github.com/frontainer/frontplate) の構成に以下のフォルダが追加されます。
+
 ```
-package.json - nomパッケージ設定ファイル
-frp.config.js - テンプレートの全体の設定ファイル。出力先や各タスクの設定を記述
-/public - コンパイルされたデータが入っている
-/config - 設定用フォルダ
-  ┣ copy.config.js
-  ┣ html.config.js
-  ┣ image.config.js
-  ┣ server.config.js
-  ┣ sprite.config.js
-  ┣ style.config.js
-  ┣ test.conf.js
-  ┣ webpack.config.js
-  ┣ webpack.config.production.js
-  ┗ webpack.core.js
+/docker - コンパイルされたデータが入っている
+┃┣ /mysql
+┃┃  ┣ Dockerfile - MySQLのDockerfile
+┃┃  ┗ my.cnf - MySQLの基本設定ファイル
+┃┣ /nginx
+┃┃  ┣ default.conf - Nginxのサーバー設定
+┃┃  ┣ Dockerfile - NginxのDockerfile
+┃┃  ┗ nginx.cnf - Nginxの基本設定ファイル
+┃┗ /phpfpm
+┃    ┣ Dockerfile - php-fpmのDockerfile
+┃    ┣ entrypoint.sh - php-fpm起動スクリプト
+┃    ┗ php-fpm.conf - php-fpmの基本設定ファイル
+/sql - SQLファイルを格納するフォルダ
 /wp - Wordpressのファイル群を入れるフォルダ
-/src - 開発用フォルダ
-  ┣ /images - 画像を入れるフォルダ。public/pc/imagesに複製される
-  ┣ /js - JSフォルダ。ES6で書ける。直下にあるJSは
-  ┃  ┣ app.js - public/pc/js/app.jsとして出力される
-  ┃  ┗ /modules
-  ┃     ┗ hoge.js - ここファイルは出力されないが変更は監視される
-  ┣ /lib - ライブラリフォルダ。外部ライブラリ等を置く。public/pc/libに複製される
-  ┣ /sass - sassフォルダ。ファイル名が_(アンダースコア)で始まっていないscssはpublic/pc/cssに出力される
-  ┣ /sprites - スプライト生成フォルダ。ここに作ったフォルダがsass/sprites/_フォルダ名.scssとして出力される
-  ┃  ┗ /icon - スプライト画像を入れるフォルダ。class="icon icon-ファイル名"で参照されるので英数字推奨
-  ┣ /test - テストコードを置くフォルダ。ここにおいたファイルはテストコードとして実行される
-  ┗ /view - ビューファイル(ejs)を置くフォルダ。ファイル名が_(アンダースコア)で始まっていないejsはpublic/pcに出力される
-      ┣ index.ejs - public/pc/index.htmlとして出力される
-      ┗ parts/
-         ┣ _header.ejs - アンダースコアから始まるファイルは出力されない
-         ┗ sub.ejs - public/pc/parts/sub.htmlとして出力される
 ```
 
 ## Get Started
@@ -86,7 +69,7 @@ npm start
 
 その他のコマンドは [frontplate](https://github.com/frontainer/frontplate) のREADMEを参照してください
 
-## DB Dump
+## MySQLエクスポート
 
 次のコマンドを実行し、`プロジェクト名_mysql_1`というコンテナが起動していることを確認します。
 
@@ -106,7 +89,7 @@ docker exec -it プロジェクト名_mysql_1 bash -c "mysqldump -uroot -ppasswo
 
 `sql/mysql.dump.sql` というファイルが出力されます。
 
-## DB Import
+## MySQLインポート
 
 SQLファイルをもとにデータをインポートする場合は次のコマンドを実行します。
 
@@ -114,9 +97,9 @@ SQLファイルをもとにデータをインポートする場合は次のコ�
 docker exec -it プロジェクト名_mysql_1 bash -c "mysql -uroot -ppassword DB名 < /docker-entrypoint-initdb.d/mysql.dump.sql"
 ```
 
-## DB Rebuild
+## MySQLの再構築
 
-※ このコマンドを実行するとデータベースの内容はすべてクリアされます
+**【注意】 このコマンドを実行するとデータベースの内容はすべてクリアされます **
 
 `sql/xxxx.sql` のようにSQLファイルを配置します。
 
