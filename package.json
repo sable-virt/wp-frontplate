@@ -1,0 +1,27 @@
+{
+  "name": "wp-frontplate",
+  "version": "0.0.1",
+  "description": "Wordpress開発の効率をあげるフルスタックテンプレート",
+  "dependencies": {},
+  "devDependencies": {
+    "frontplate-cli": "^0.1.4",
+    "npm-run-all": "^3.1.0"
+  },
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "test": "frp build",
+    "build": "docker-compose build && frp build",
+    "serve": "run-p server:*",
+    "server:web": "frp serve",
+    "server:docker": "docker-compose up",
+    "production": "frp build -p",
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:frontainer/frontplate.git"
+  },
+  "author": "frontainer",
+  "license": "MIT",
+  "private": true
+}
