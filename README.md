@@ -4,9 +4,7 @@
 
 - ※ Node.js 5.0以上が必要です
 
-[CHANGELOG](https://github.com/frontainer/frontplate/blob/master/CHANGELOG.md)
-
-[過去バージョン](https://github.com/frontainer/frontplate/releases)
+[CHANGELOG](https://github.com/frontainer/wp-frontplate/blob/master/CHANGELOG.md)
 
 ## Feature
 
@@ -53,21 +51,26 @@
 
 ## Get Started
 
-[Wordpress](https://ja.wordpress.org/) をダウンロードし、wpフォルダに配置します。
-
-次のコマンドを実行して必要なファイルをインストールします。
+frontplate-cliをインストールします。
 
 ```
-npm i
+npm i frontplate-cli -g
 ```
 
-続いて次のコマンドを実行して、ビルド・サーバーを起動します。
+次にプロジェクトを生成します。
 
 ```
+frp create my-wp-app --preset wp
+```
+
+ダウンロードとインストールが完了したら、できたプロジェクトに移動し、`npm start` コマンドを実行します。
+
+```
+cd my-wp-app
 npm start
 ```
 
-その他のコマンドは [frontplate](https://github.com/frontainer/frontplate) のREADMEを参照してください
+以上で起動完了です。その他のコマンドは [frontplate](https://github.com/frontainer/frontplate) のREADMEを参照してください
 
 ## MySQLエクスポート
 
