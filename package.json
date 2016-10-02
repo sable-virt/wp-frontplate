@@ -21,6 +21,9 @@
     "type": "git",
     "url": "git@github.com:frontainer/frontplate.git"
   },
+  "frp": {
+    "WordPress/WordPress": "wp"
+  },
   "author": "frontainer",
   "license": "MIT",
   "private": true
