@@ -1,3 +1,6 @@
+'use strict';
+const core = require('./core.config');
 module.exports = {
-  "src/lib/**/*": "wp/assets/lib"
+    // 'path/from': '/path/to'
+    'src/lib/**/*': core.basePath + '/assets/lib'
 };

@@ -1,9 +1,9 @@
 'use strict';
+const core = require('./core.config');
 module.exports = {
-  "proxy": 'localhost',
-  "port": 3000,
-  "middleware": [
-  ],
+  "server": core.basePath,  // ドキュメントルート
+  "port": 3000,             // ポート
+  "middleware": [],
   "ghostMode": {
     "clicks": true,
     "scroll": true,

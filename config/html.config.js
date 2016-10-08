@@ -1,11 +1,22 @@
+'use strict';
+const core = require('./core.config');
 module.exports = {
-    src: 'src/view/**/*.ejs',
-    dest: 'wp',
-    // ejs params
-    params: {
+    src: 'src/view/**/*.ejs',   // 読み込むビューファイル
+    dest: core.basePath,        // 出力先
+    params: {                   // ビューで使うグローバル変数
         title: 'title'
     },
-    // htmlhint rules
+    // １つのテンプレートで複数作成するときに使用する
+    pages: [
+        // {
+        //     name: 'filename',    // 出力するファイル名
+        //     src: 'src/view/tmpl/_template.ejs',  // テンプレート
+        //     params: {       // ページに渡す変数
+        //         title: 'page title'
+        //     }
+        // }
+    ],
+    // htmlhintルール(https://github.com/yaniswang/HTMLHint/wiki/Rules)
     rules: {
         "tagname-lowercase": true,
         "attr-lowercase": true,
