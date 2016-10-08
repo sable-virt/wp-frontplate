@@ -2,52 +2,13 @@
 
 フロントエンド開発の効率を上げるテンプレートのWordpress版
 
-- ※ Node.js 5.0以上が必要です
-
 [CHANGELOG](https://github.com/frontainer/wp-frontplate/blob/master/CHANGELOG.md)
-
-## Feature
-
-- HTMLモジュール（EJS）
-- SASS
-- SASSLint
-- ES2015
-- スプライト画像の作成とSassファイルの出力
-- JS/CSSの圧縮と最適化
-- CSSのベンダープレフィックス付与自動化
-- 非対応CSSプロパティアラート
-- ユニットテスト（Mocha/PowerAssert）
-- LiveReload
-- ESLint
-- HTMLHint
-- JS/CSSソースマップ
-- DockerによるWordpress開発環境
 
 ## Dependence
 
 * [NodeJS](https://nodejs.org/) 5.0以上
+* [frontplate-cli](https://www.npmjs.com/package/frontplate-cli)
 * [Docker for Mac](https://docs.docker.com/docker-for-mac/) または [Docker for Windows](https://docs.docker.com/docker-for-windows/)
-
-## 構成
-
-[frontplate](https://github.com/frontainer/frontplate) の構成に以下のフォルダが追加されます。
-
-```
-/docker - コンパイルされたデータが入っている
-┃┣ /mysql
-┃┃  ┣ Dockerfile - MySQLのDockerfile
-┃┃  ┗ my.cnf - MySQLの基本設定ファイル
-┃┣ /nginx
-┃┃  ┣ default.conf - Nginxのサーバー設定
-┃┃  ┣ Dockerfile - NginxのDockerfile
-┃┃  ┗ nginx.cnf - Nginxの基本設定ファイル
-┃┗ /phpfpm
-┃    ┣ Dockerfile - php-fpmのDockerfile
-┃    ┣ entrypoint.sh - php-fpm起動スクリプト
-┃    ┗ php-fpm.conf - php-fpmの基本設定ファイル
-/sql - SQLファイルを格納するフォルダ
-/wp - Wordpressのファイル群を入れるフォルダ
-```
 
 ## Get Started
 
@@ -113,3 +74,33 @@ npm start
 ```
 
 sql以下に配置されたSQLをインポートした新しいデータベースが作成されます。
+
+## 構成
+
+[frontplate](https://github.com/frontainer/frontplate) の構成に以下のフォルダが追加されます。
+
+```
+/docker - コンパイルされたデータが入っている
+┃┣ /mysql
+┃┃  ┣ Dockerfile - MySQLのDockerfile
+┃┃  ┗ my.cnf - MySQLの基本設定ファイル
+┃┣ /nginx
+┃┃  ┣ default.conf - Nginxのサーバー設定
+┃┃  ┣ Dockerfile - NginxのDockerfile
+┃┃  ┗ nginx.cnf - Nginxの基本設定ファイル
+┃┗ /phpfpm
+┃    ┣ Dockerfile - php-fpmのDockerfile
+┃    ┣ entrypoint.sh - php-fpm起動スクリプト
+┃    ┗ php-fpm.conf - php-fpmの基本設定ファイル
+/sql - SQLファイルを格納するフォルダ
+/wp - Wordpressのファイル群を入れるフォルダ
+```
+
+## Dependencies documentation
+
+このテンプレートは[frontplate](https://github.com/frontainer/frontplate)と[frontplate-cli](https://github.com/frontainer/frontplate-cli)がベースになっています。
+
+詳細なドキュメントはそれぞれのドキュメントを参照してください。
+
+[frontplate](https://github.com/frontainer/frontplate)
+[frontplate-cli](https://github.com/frontainer/frontplate-cli)
