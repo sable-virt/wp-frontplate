@@ -33,6 +33,18 @@ npm start
 
 以上で起動完了です。その他のコマンドは [frontplate](https://github.com/frontainer/frontplate) のREADMEを参照してください
 
+## ビルド
+
+```
+npm run build
+```
+
+## サーバー起動&ファイル監視
+
+```
+npm run serve
+```
+
 ## MySQLエクスポート
 
 次のコマンドを実行し、`プロジェクト名_mysql_1`というコンテナが起動していることを確認します。
