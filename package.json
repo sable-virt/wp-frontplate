@@ -1,6 +1,6 @@
 {
   "name": "wp-frontplate",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Wordpress開発の効率をあげるフルスタックテンプレート",
   "dependencies": {},
   "devDependencies": {
