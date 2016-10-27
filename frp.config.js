@@ -11,7 +11,7 @@ module.exports = function (production) {
       proxy: 'localhost'
     },
     copy: {},
-    sprite: {},
+    sprite: [],
     test: {}
   }
 };
